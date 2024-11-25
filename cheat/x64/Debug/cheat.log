@@ -1,0 +1,24 @@
+﻿  cheat.cpp
+C:\Users\kirill\Desktop\папки\programming\c++\cheat\cheat\ProcessMemory.h(33,47): warning C4312: reinterpret_cast: преобразование из "DWORD" в "LPCVOID" большего размера
+  (компиляция исходного файла "cheat.cpp")
+      C:\Users\kirill\Desktop\папки\programming\c++\cheat\cheat\ProcessMemory.h(33,47):
+      контекст создания экземпляра шаблона (сначала самый старый)
+          C:\Users\kirill\Desktop\папки\programming\c++\cheat\cheat\cheat.cpp(64,16):
+          выполняется компиляция ссылки на экземпляр шаблон функции "T ProcessMemory::ReadMemory<DWORD>(DWORD)"
+          with
+          [
+              T=DWORD
+          ]
+  
+C:\Users\kirill\Desktop\папки\programming\c++\cheat\cheat\ProcessMemory.h(45,48): warning C4312: reinterpret_cast: преобразование из "DWORD" в "LPVOID" большего размера
+  (компиляция исходного файла "cheat.cpp")
+      C:\Users\kirill\Desktop\папки\programming\c++\cheat\cheat\ProcessMemory.h(45,48):
+      контекст создания экземпляра шаблона (сначала самый старый)
+          C:\Users\kirill\Desktop\папки\programming\c++\cheat\cheat\cheat.cpp(94,6):
+          выполняется компиляция ссылки на экземпляр шаблон функции "void ProcessMemory::WriteMemory<DWORD>(DWORD,const T &)"
+          with
+          [
+              T=DWORD
+          ]
+  
+  cheat.vcxproj -> C:\Users\kirill\Desktop\папки\programming\c++\cheat\x64\Debug\cheat.exe
