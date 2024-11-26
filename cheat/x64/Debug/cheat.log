@@ -3,7 +3,7 @@ C:\Users\Kirill\Desktop\learning\as-cheat\cheat\ProcessMemory.h(33,47): warning 
   (компиляция исходного файла "cheat.cpp")
       C:\Users\Kirill\Desktop\learning\as-cheat\cheat\ProcessMemory.h(33,47):
       контекст создания экземпляра шаблона (сначала самый старый)
-          C:\Users\Kirill\Desktop\learning\as-cheat\cheat\cheat.cpp(42,20):
+          C:\Users\Kirill\Desktop\learning\as-cheat\cheat\cheat.cpp(46,20):
           выполняется компиляция ссылки на экземпляр шаблон функции "T ProcessMemory::ReadMemory<DWORD>(DWORD)"
           with
           [
@@ -14,11 +14,22 @@ C:\Users\Kirill\Desktop\learning\as-cheat\cheat\ProcessMemory.h(45,48): warning 
   (компиляция исходного файла "cheat.cpp")
       C:\Users\Kirill\Desktop\learning\as-cheat\cheat\ProcessMemory.h(45,48):
       контекст создания экземпляра шаблона (сначала самый старый)
-          C:\Users\Kirill\Desktop\learning\as-cheat\cheat\cheat.cpp(68,6):
+          C:\Users\Kirill\Desktop\learning\as-cheat\cheat\cheat.cpp(76,6):
           выполняется компиляция ссылки на экземпляр шаблон функции "void ProcessMemory::WriteMemory<DWORD>(DWORD,const T &)"
           with
           [
               T=DWORD
+          ]
+  
+C:\Users\Kirill\Desktop\learning\as-cheat\cheat\ProcessMemory.h(55,47): warning C4312: reinterpret_cast: преобразование из "DWORD" в "LPCVOID" большего размера
+  (компиляция исходного файла "cheat.cpp")
+      C:\Users\Kirill\Desktop\learning\as-cheat\cheat\ProcessMemory.h(55,47):
+      контекст создания экземпляра шаблона (сначала самый старый)
+          C:\Users\Kirill\Desktop\learning\as-cheat\cheat\cheat.cpp(111,5):
+          выполняется компиляция ссылки на экземпляр шаблон функции "void ProcessMemory::ReadMemoryArray<float>(DWORD,T *,size_t)"
+          with
+          [
+              T=float
           ]
   
   cheat.vcxproj -> C:\Users\Kirill\Desktop\learning\as-cheat\x64\Debug\cheat.exe

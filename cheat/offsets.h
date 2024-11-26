@@ -3,6 +3,7 @@
 
 namespace offsets
 {
+	DWORD viewMatrixAddress = 0x57DFDC;
 	DWORD LocalPlayer = 0x00400000 + 0x0017E0A8;
 	DWORD EntityList = 0x00400000 + 0x18AC04;
 	DWORD FOV = 0x00400000 + 0x18A7CC;

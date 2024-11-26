@@ -16,25 +16,6 @@ struct Vec2 {
 	float x, y;
 };
 
-bool WorldToScreen(const Vec3& worldPos, Vec2& screenPos, float* viewMatrix, int screenWidth, int screenHeight) {
-	// Вычисляем значения W
-	float w = viewMatrix[12] * worldPos.x + viewMatrix[13] * worldPos.y + viewMatrix[14] * worldPos.z + viewMatrix[15];
-
-	// Проверяем видимость
-	if (w < 0.01f) {
-		return false; // Объект за пределами экрана
-	}
-
-	// Преобразование координат
-	screenPos.x = (viewMatrix[0] * worldPos.x + viewMatrix[1] * worldPos.y + viewMatrix[2] * worldPos.z + viewMatrix[3]) / w;
-	screenPos.y = (viewMatrix[4] * worldPos.x + viewMatrix[5] * worldPos.y + viewMatrix[6] * worldPos.z + viewMatrix[7]) / w;
-
-	// Приводим к экранным координатам
-	screenPos.x = (screenWidth / 2.0f) * (1.0f + screenPos.x);
-	screenPos.y = (screenHeight / 2.0f) * (1.0f - screenPos.y); // Инвертируем Y, т.к. экранная система координат имеет верхний левый угол (0,0)
-
-	return true; // Объект видим
-}
 
 void monitorPlayers(ProcessMemory& pm, DWORD playerCount, DWORD entityList) {
 	while (true) {
@@ -94,12 +75,13 @@ int main()
 		return 1;
 	}
 
-
+	// чтение памяти
 	ProcessMemory pm(processHandle);
 	DWORD lp = pm.ReadMemory<DWORD>(offsets::LocalPlayer);
 	DWORD cp = pm.ReadMemory<DWORD>(offsets::PlayerCount);
 	DWORD entityList = pm.ReadMemory<DWORD>(offsets::EntityList);
-
+	
+	//потоки
 	std::thread playerThread(monitorPlayers, std::ref(pm), cp, entityList);
 	std::thread healthThread(updateHealth, std::ref(pm), lp);
 	playerThread.join();

@@ -46,6 +46,21 @@ public:
             throw std::runtime_error("Ошибка записи в память. Код ошибки: " + std::to_string(GetLastError()));
         }
     }
+
+    template<typename T>
+    void ReadMemoryArray(DWORD address, T* buffer, size_t count) {
+        SIZE_T bytesRead = 0;
+
+        // Считаем весь массив
+        if (!ReadProcessMemory(processHandle, reinterpret_cast<LPCVOID>(address), buffer, sizeof(T) * count, &bytesRead)) {
+            throw std::runtime_error("Ошибка чтения памяти массива. Код ошибки: " + std::to_string(GetLastError()));
+        }
+
+        // Проверяем, что было прочитано нужное количество байт
+        if (bytesRead != sizeof(T) * count) {
+            throw std::runtime_error("Прочитано недостаточно данных из памяти.");
+        }
+    }
 };
 
 #endif // PROCESS_MEMORY_H
